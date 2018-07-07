@@ -21,11 +21,14 @@
 
     <div id="content">
         <div class="login-box">
+            <span class="login-title">Для входа введите имя пользователя и пароль</span>
             <form method="post" action="/login">
-                <input type="text" name="user">
-                <input type="password" name="password"/>
-                <button type="submit">Login</button>
+                <input type="text" name="user" class="form-input" placeholder="Имя пользователя">
+                <input type="password" name="password" class="form-input" placeholder="Пароль"/>
+                <button type="submit" class="form-input form-submit">Login</button>
             </form>
+
+            <a href="/register" class="register-link">Регистрация</a>
         </div>
     </div>
 

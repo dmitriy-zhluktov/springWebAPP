@@ -49,6 +49,7 @@ p {
 
 #content {
     padding-bottom: 35px;
+    padding-top: 20px;
 }
 
 #footer {
@@ -59,4 +60,47 @@ p {
     margin-top: -35px;
     line-height: 35px;
     text-align: center;
+}
+
+.login-box {
+    width: 200px;
+    margin: 20px auto;
+}
+
+.form-input {
+    display: block;
+    line-height: 14px;
+    padding: 3px;
+    border-radius: 3px;
+    border-width: 1px;
+    margin: 2px auto;
+    width: 150px;
+}
+
+.form-input:focus {
+    box-shadow: darkcyan 0px 0px 5px 0px;
+    border: darkcyan 1px solid;
+    outline: 0;
+}
+
+.form-submit {
+    margin: 10px 0;
+    background: coral;
+    margin: 10px auto;
+    padding: 5px 30px;
+    cursor: pointer;
+    width: 100px;
+}
+
+.register-link {
+    display: block;
+    color: cornflowerblue;
+    text-align: center;
+    font-size: 12px;
+}
+
+.login-title {
+    display: block;
+    margin-left: 25px;
+    font-size: 11px;
 }
