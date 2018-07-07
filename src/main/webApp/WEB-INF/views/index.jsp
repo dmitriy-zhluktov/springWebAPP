@@ -16,17 +16,22 @@
     </title>
 </head>
 <body>
-<div id="content">
-    <div class="login-box">
-        <form method="post" action="/login">
-            <input type="text" name="user">
-            <input type="password" name="password"/>
-            <button type="submit">Login</button>
-        </form>
+<div id="container">
+    <div id="header"></div>
+
+    <div id="content">
+        <div class="login-box">
+            <form method="post" action="/login">
+                <input type="text" name="user">
+                <input type="password" name="password"/>
+                <button type="submit">Login</button>
+            </form>
+        </div>
     </div>
-</div>
-<div class="footer">
-    <p>Попячтесь!</p>
+
+    <div id="footer">
+        <p>Попячтесь!</p>
+    </div>
 </div>
 </body>
 </html>
