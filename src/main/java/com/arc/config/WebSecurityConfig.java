@@ -5,13 +5,13 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.GrantedAuthority;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -51,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     res.sendRedirect("/");
                 })
                 //.failureUrl("/index?error")   // используется, если отсутствует failureHandler
-                .permitAll() // пока непонятно Allow access to any URL associate to formLogin()
+                .permitAll() // разрешаем доступ
                 .and()
                 .logout()
                 .logoutUrl("/signout")   // страница выхода, по умолчанию logout
@@ -60,8 +60,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     res.sendRedirect("/");
                 })
                 //.logoutSuccessUrl("/login") // используется, если отсутствует logoutSuccessHandler
-                .permitAll() // пока неясно Allow access to any URL associate to logout()
+                .permitAll() // разрешаем доступ
                 .and()
-                .csrf().disable(); // пока неясно, тут какой-то токен Disable CSRF support
+                .csrf().disable(); // отключаем межсайтовую защиту
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/resources/**"); // доступ к ресурсам
     }
 }

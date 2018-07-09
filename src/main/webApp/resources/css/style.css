@@ -104,3 +104,16 @@ p {
     margin-left: 25px;
     font-size: 11px;
 }
+
+#message-box {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.error-message {
+    color: red;
+}
+
+.info-message {
+    color: green;
+}
