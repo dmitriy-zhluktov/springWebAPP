@@ -13,9 +13,8 @@ public class IndexController {
         return "index";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView login() {
-        ModelAndView model = new ModelAndView("index", "title", "login page");
-        return model;
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public String adminIndex() {
+        return "admin";
     }
 }
