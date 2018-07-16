@@ -32,7 +32,7 @@
     <div id="content">
         <div id="chat">
             <div class="messages">
-
+                <h5>Тут будет история переписки</h5>
             </div>
             <input type="text" name="text" placeholder="Введите сообщение" class="message-input"/>
             <button type="button" class="msg-button">отпрвить</button>

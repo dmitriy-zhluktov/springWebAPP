@@ -132,3 +132,22 @@ p {
 .nav-item.last::after {
     clear: both;
 }
+
+#chat {
+    text-align: center;
+}
+.messages {
+    background: cornflowerblue;
+    color: white;
+}
+
+#message-list {
+    text-align: left;
+    width: 500px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+#message-list li {
+    padding: 5px;
+}
