@@ -42,6 +42,7 @@
             </form>
 
             <a href="<spring:url value="register" />" class="register-link">Регистрация</a>
+            <a href="<spring:url value="user/chat" />" class="register-link">Чат</a>
         </div>
     </div>
 

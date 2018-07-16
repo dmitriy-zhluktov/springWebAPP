@@ -117,3 +117,18 @@ p {
 .info-message {
     color: green;
 }
+
+.nav-item {
+    float: left;
+    list-style: none;
+    display: block;
+    padding: 5px;
+    background: cadetblue;
+    margin: 5px;
+}
+.nav-item a {
+    color: white;
+}
+.nav-item.last::after {
+    clear: both;
+}

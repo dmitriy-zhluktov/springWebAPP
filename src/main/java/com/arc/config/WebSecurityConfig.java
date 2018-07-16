@@ -17,14 +17,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("admin").password("admin123").roles("ADMIN");
+                .withUser("admin").password("123").roles("ADMIN");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().anyRequest().hasRole("ADMIN")
-                .and()
-                .authorizeRequests().antMatchers("/**").permitAll()
+        http.authorizeRequests()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/**").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/") // страница логина
@@ -60,7 +60,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     res.sendRedirect("/");
                 })
                 //.logoutSuccessUrl("/login") // используется, если отсутствует logoutSuccessHandler
-                .permitAll() // разрешаем доступ
+                .and()
+                .authorizeRequests().anyRequest().authenticated()
                 .and()
                 .csrf().disable(); // отключаем межсайтовую защиту
     }

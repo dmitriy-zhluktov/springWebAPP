@@ -16,4 +16,8 @@
         <beans:property name="suffix" value=".jsp" />
     </beans:bean>
 
+    <interceptors>
+        <beans:bean class="com.arc.interceptor.BaseInterceptor" />
+    </interceptors>
+
 </beans:beans>

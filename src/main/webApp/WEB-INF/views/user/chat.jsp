@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="<spring:url value="resources/css/style.css"/>" rel="stylesheet" />
+    <link href="<spring:url value="/resources/css/style.css"/>" rel="stylesheet" />
     <title>Admin part</title>
 </head>
 <body>
@@ -12,8 +12,6 @@
     <div id="header">
         <div id="navigtion">
             <ul class="nav">
-                <li class="nav-item"><a href="<spring:url value="${baseURL}/admin/chat" />">Chat</a></li>
-                <li class="nav-item last"><a href="<spring:url value="${baseURL}/signout"/>">Выход</a></li>
             </ul>
         </div>
         <div id="message-box">
@@ -30,8 +28,12 @@
     </div>
 
     <div id="content">
-        <div class="login-box">
-            <span class="login-title">Какой ты чувствительный мальчик, Томми</span>
+        <div id="chat">
+            <div class="messages">
+
+            </div>
+            <input type="text" name="text" placeholder="Введите сообщение" class="message-input"/>
+            <button type="button" class="msg-button">отпрвить</button>
         </div>
     </div>
 

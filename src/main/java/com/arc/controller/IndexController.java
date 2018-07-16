@@ -17,4 +17,14 @@ public class IndexController {
     public String adminIndex() {
         return "admin";
     }
+
+    @RequestMapping(value = "/admin/chat", method = RequestMethod.GET)
+    public String adminChat() {
+        return "admin/chat";
+    }
+
+    @RequestMapping(value = "user/chat", method = RequestMethod.GET)
+    public String userChat() {
+        return "user/chat";
+    }
 }
