@@ -6,8 +6,38 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="<spring:url value="/resources/css/style.css"/>" rel="stylesheet" />
     <title>Admin part</title>
+    <script type="text/javascript">
+        var socketConnection = new WebSocket('ws://localhost:8080/socketEndpoint');;
+        var clientMsg;
+        var msgList;
+
+        function init() {
+            clientMsg = document.getElementById('user-message');
+            msgList = document.getElementById('message-list');
+        }
+
+        //Send Message
+        function sendMessage() {
+            if (clientMsg.value) {
+                socketConnection.send(clientMsg.value);
+                addMessageToList('Я: ' + clientMsg.value);
+                clientMsg.value = '';
+            }
+        }
+
+        // Receive Message
+        socketConnection.onmessage = function(event) {
+            addMessageToList('Одмен: ' + event.data);
+        }
+
+        function addMessageToList(message) {
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(message));
+            msgList.appendChild(li);
+        }
+    </script>
 </head>
-<body>
+<body onload="init();">
 <div id="container">
     <div id="header">
         <div id="navigtion">
@@ -33,9 +63,10 @@
         <div id="chat">
             <div class="messages">
                 <h5>Тут будет история переписки</h5>
+                <ul id="message-list"></ul>
             </div>
-            <input type="text" name="text" placeholder="Введите сообщение" class="message-input"/>
-            <button type="button" class="msg-button">отпрвить</button>
+            <input type="text" name="text" id="user-message" placeholder="Введите сообщение" class="message-input"/>
+            <button type="button" class="msg-button" onclick="sendMessage();">отпрвить</button>
         </div>
     </div>
 
