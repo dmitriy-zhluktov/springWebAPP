@@ -1,4 +1,4 @@
-package com.arc.websocket;
+package com.arc.model.websocket;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;

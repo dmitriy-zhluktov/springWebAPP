@@ -17,7 +17,7 @@
     </beans:bean>
 
     <interceptors>
-        <beans:bean class="com.arc.interceptor.BaseInterceptor" />
+        <beans:bean class="com.arc.model.interceptor.BaseInterceptor" />
     </interceptors>
 
 </beans:beans>

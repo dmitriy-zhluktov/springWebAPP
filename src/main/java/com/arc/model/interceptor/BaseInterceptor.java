@@ -1,4 +1,4 @@
-package com.arc.interceptor;
+package com.arc.model.interceptor;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
