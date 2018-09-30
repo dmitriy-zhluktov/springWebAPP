@@ -25,7 +25,6 @@ public class UserDaoImpl implements UserDao {
         CriteriaQuery<User> cq = builder.createQuery(User.class);
         Root<User> root = cq.from(User.class);
         cq.select(root).where(builder.equal(root.get("username"), username));
-        Join<UserRole, User> join = cq.j
         Query<User> query = session.createQuery(cq);
 
         return query.uniqueResult();
