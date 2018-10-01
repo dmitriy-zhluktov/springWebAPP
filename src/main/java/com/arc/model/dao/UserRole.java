@@ -18,10 +18,15 @@ public class UserRole {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne(fetch = FetchType.LAZY, targetEntity = User.class)
-    private String username;
+    @Column(name = "user_id")
+    private int userId;
 
+    @Column(name = "role")
     private String role;
+
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private User user;
 
     public int getId() {
         return id;
@@ -31,12 +36,12 @@ public class UserRole {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getRole() {
@@ -45,5 +50,13 @@ public class UserRole {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

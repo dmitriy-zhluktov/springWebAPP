@@ -1,29 +1,24 @@
 package com.arc.model.dao;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
-    @Column(unique = true)
-    private String username;
+    @Column(name = "name", unique = true)
+    private String name;
+    @Column(name = "password")
     private String password;
+    @Column(name = "enabled")
     private boolean enabled;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "username")
+    @OneToOne(mappedBy = "user", optional = false)
     private UserRole userRole;
 
     public int getId() {
@@ -34,12 +29,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {

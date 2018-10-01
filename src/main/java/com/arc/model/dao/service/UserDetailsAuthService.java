@@ -24,7 +24,7 @@ public class UserDetailsAuthService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userDao.findByUserName(username);
 
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+        return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(),
                 user.isEnabled(), true, true, true, grantedAuthorities(user));
     }
 
