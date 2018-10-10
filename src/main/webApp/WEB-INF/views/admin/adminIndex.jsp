@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="<spring:url value="resources/css/style.css"/>" rel="stylesheet" />
+    <link href="<spring:url value="${baseURL}/resources/css/style.css"/>" rel="stylesheet" />
     <title>Admin part</title>
 </head>
 <body>
@@ -13,6 +13,7 @@
         <div id="navigtion">
             <ul class="nav">
                 <li class="nav-item"><a href="<spring:url value="${baseURL}/admin/chat" />">Chat</a></li>
+                <li class="nav-item"><a href="<spring:url value="${baseURL}/admin/users" />">Users</a></li>
                 <li class="nav-item last"><a href="<spring:url value="${baseURL}/signout"/>">Выход</a></li>
             </ul>
         </div>

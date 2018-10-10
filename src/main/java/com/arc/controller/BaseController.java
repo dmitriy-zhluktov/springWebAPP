@@ -2,6 +2,7 @@ package com.arc.controller;
 
 import com.arc.model.dao.User;
 import com.arc.model.dao.service.UserDao;
+import com.arc.model.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,13 +13,9 @@ public class BaseController {
     private static final String USER_VIEW_PREFIX = "user/";
     private static final String ADMIN_VIEW_PREFIX = "admin/";
 
-    @Autowired
-    private UserDao userDao;
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index()
     {
-        User user = userDao.findByUserName("admin");
         return "index";
     }
 
