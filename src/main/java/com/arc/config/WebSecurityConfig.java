@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         System.out.println(authority.getAuthority());
                     }
                     System.out.println(auth.getName());
-                    req.setAttribute("message", "You are successfully login!");
+                    req.getSession().setAttribute("message", "You are successfully login!");
                     res.sendRedirect("/admin");
                 })
                 //.defaultSuccessUrl("/admin")   //  используется, если отсутствует successHandler

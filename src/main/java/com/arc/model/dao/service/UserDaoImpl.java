@@ -2,6 +2,7 @@ package com.arc.model.dao.service;
 
 import com.arc.model.dao.User;
 import com.arc.model.dao.UserRole;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Repository;
 
@@ -51,6 +52,9 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User addUser(String name, String password, boolean enabled, String role) {
+        if (findByUserName(name) != null) {
+            throw new DuplicateKeyException("Пользователь с таким именем уже существует!");
+        }
         User user = new User();
         user.setName(name);
         user.setPassword(password);

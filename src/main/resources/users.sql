@@ -5,7 +5,8 @@ CREATE  TABLE users (
   name varchar(45) NOT NULL,
   password varchar(45) NOT NULL,
   enabled boolean NOT NULL DEFAULT TRUE,
-  PRIMARY KEY (id))
+  PRIMARY KEY (id),
+  UNIQUE KEY (name))
   ENGINE = InnoDB
   DEFAULT CHARACTER SET = utf8;
 
