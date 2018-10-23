@@ -3,6 +3,7 @@ package com.arc.model.dao.service;
 import com.arc.model.dao.User;
 import com.arc.model.dao.UserRole;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Repository;
 
@@ -32,7 +33,7 @@ public class UserDaoImpl implements UserDao {
         cq.select(root).where(builder.equal(root.get("name"), username));
 
 
-        return entityManager.createQuery(cq).getSingleResult();
+        return DataAccessUtils.singleResult(entityManager.createQuery(cq).getResultList());
     }
 
     @Override
