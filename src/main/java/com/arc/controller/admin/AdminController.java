@@ -21,6 +21,8 @@ public class AdminController extends BaseController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String adminIndex() {
+        User user = userService.findByUserName("admin");
+        user.getName();
         return getAdminView("adminIndex");
     }
 

@@ -34,9 +34,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("passwd")  // поле с логином, по умолчанию password
                 .successHandler((req, res, auth) -> {    // в случае успеха
                     for (GrantedAuthority authority : auth.getAuthorities()) {
-                        System.out.println(authority.getAuthority());
+                        //System.out.println(authority.getAuthority());
                     }
-                    System.out.println(auth.getName());
+                    //System.out.println(auth.getName());
                     req.getSession().setAttribute("message", "You are successfully login!");
                     res.sendRedirect("/admin");
                 })

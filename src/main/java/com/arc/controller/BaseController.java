@@ -1,9 +1,6 @@
 package com.arc.controller;
 
-import com.arc.model.dao.User;
-import com.arc.model.dao.service.UserDao;
-import com.arc.model.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.aspectj.lang.annotation.AdviceName;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
